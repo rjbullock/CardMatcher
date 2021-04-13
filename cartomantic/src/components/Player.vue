@@ -2,17 +2,17 @@
 <div>
         <b-card tag="article" class="mb-3 mr-3" bg-variant="info" text-variant="white" :header="player.name">
           <b-card-text class="text-left" >
-            <b-form-checkbox :id="player.id-1" :value="categories[0].value" size="lg" v-model="cardGroups">{{categories[0].label}}</b-form-checkbox>
-            <b-form-checkbox :id="player.id-2" :value="categories[1].value" size="lg" v-model="cardGroups">{{categories[1].label}}</b-form-checkbox>
-            <b-form-checkbox :id="player.id-3" :value="categories[2].value" size="lg" v-model="cardGroups">{{categories[2].label}}</b-form-checkbox>
-            <b-form-checkbox :id="player.id-4" :value="categories[3].value" size="lg" v-model="cardGroups">{{categories[3].label}}</b-form-checkbox>
-            <b-form-checkbox :id="player.id-5" :value="categories[4].value" size="lg" v-model="cardGroups">{{categories[4].label}}</b-form-checkbox>
-            <b-form-checkbox :id="player.id-6" :value="categories[5].value" size="lg" v-model="cardGroups">{{categories[5].label}}</b-form-checkbox>
-            <p class="border border-light p-2 m-2 text-center bg-secondary"><strong>{{ card }}</strong></p>
+            <b-form-checkbox v-bind:id="player.id + '-' + categories[0].label" :value="categories[0].value" size="lg" v-model="cardGroups">{{categories[0].label}}</b-form-checkbox>
+            <b-form-checkbox v-bind:id="player.id + '-' + categories[1].label" :value="categories[1].value" size="lg" v-model="cardGroups">{{categories[1].label}}</b-form-checkbox>
+            <b-form-checkbox v-bind:id="player.id + '-' + categories[2].label" :value="categories[2].value" size="lg" v-model="cardGroups">{{categories[2].label}}</b-form-checkbox>
+            <b-form-checkbox v-bind:id="player.id + '-' + categories[3].label" :value="categories[3].value" size="lg" v-model="cardGroups">{{categories[3].label}}</b-form-checkbox>
+            <b-form-checkbox v-bind:id="player.id + '-' + categories[4].label" :value="categories[4].value" size="lg" v-model="cardGroups">{{categories[4].label}}</b-form-checkbox>
+            <b-form-checkbox v-bind:id="player.id + '-' + categories[5].label" :value="categories[5].value" size="lg" v-model="cardGroups">{{categories[5].label}}</b-form-checkbox>
+            <h2 class="border border-light mt-2 pt-2 pb-2 text-center"><strong>{{ card }}</strong></h2>
           </b-card-text>
-          <footer class="text-center">
-            <button @click="$emit('del-player', player.id)" class="del">x</button>
-          </footer>
+          <b-card-footer class="text-center">
+            <button @click="$emit('del-player', player)" class="del">x</button>
+          </b-card-footer>
       </b-card>
       
 </div>
@@ -62,9 +62,14 @@ computed: {
     background: #ff0000;
     color: #fff;
     border: none;
-    padding: 1rem;
+    padding: 10px;
     font-weight: bold;
     border-radius: 20%;
     cursor: pointer;
   }
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-footer { background-color: none;}
 </style>
